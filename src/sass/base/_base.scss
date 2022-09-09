@@ -1,0 +1,18 @@
+section {
+  padding: 5rem 0;
+}
+.customContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .customContainer {
+    width: 92%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}

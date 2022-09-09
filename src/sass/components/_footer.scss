@@ -1,0 +1,17 @@
+.footer {
+  padding: 4rem 2rem;
+  background-color: black;
+  margin-top: 1rem;
+  &__content {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: 200;
+
+    span {
+      font-weight: 800;
+      color: rgb(205, 0, 0);
+      text-transform: uppercase;
+    }
+  }
+}

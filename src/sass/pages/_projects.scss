@@ -1,0 +1,15 @@
+.projectsPage {
+  position: relative;
+  min-height: 100vh;
+  &__content {
+    opacity: 0;
+    padding: 7rem 0;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    font-weight: 700;
+    font-size: 5rem !important;
+    margin-bottom: 2rem;
+  }
+}

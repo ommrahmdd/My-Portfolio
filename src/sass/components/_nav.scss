@@ -1,0 +1,20 @@
+.customNav {
+  padding: 2rem 1rem;
+
+  &__p {
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+    padding-left: 8rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background-color: black;
+      width: 6rem;
+      height: 0.1rem;
+      display: inline-block;
+    }
+  }
+}

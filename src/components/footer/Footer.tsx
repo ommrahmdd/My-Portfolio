@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer__content">
         Made with{" "}
         <span>
@@ -10,6 +10,6 @@ export default function Footer() {
         </span>{" "}
         by Omar | &copy;2022
       </div>
-    </div>
+    </footer>
   );
 }

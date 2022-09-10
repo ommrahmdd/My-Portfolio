@@ -26,7 +26,7 @@ export default function Projects() {
   };
 
   return (
-    <div className="projects">
+    <section className="projects">
       <div className="customContainer">
         <div className="projects__title">Projects</div>
         <div className="projects__content">
@@ -135,6 +135,6 @@ export default function Projects() {
           <div className="projects__more-span"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

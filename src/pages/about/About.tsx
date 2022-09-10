@@ -69,7 +69,7 @@ export default function About() {
     (e.target as HTMLDivElement).children[1].setAttribute("style", "opacity:0");
   };
   return (
-    <div className="aboutPage">
+    <main className="aboutPage">
       <i
         className="fa-solid fa-quote-right aboutPage__quote"
         ref={pageQuote}
@@ -164,6 +164,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -20,14 +20,7 @@ export default function Home() {
       height: "30rem",
       delay: 0.7,
     })
-      // .to([div1.current, div2.current, div3.current], {
-      //   duration: 0.4,
-      //   ease: Power3.easeInOut,
-      //   opacity: 1,
-      //   y: -10,
-      //   // delay: 2,
-      //   stagger: 0.3,
-      // })
+
       .to([...(txtRef.current as any).children], {
         duration: 0.4,
         ease: Power3.easeInOut,
@@ -49,7 +42,7 @@ export default function Home() {
       );
   }, []);
   return (
-    <div className="home">
+    <main className="home">
       <Nav name="Home" />
       {/* ------------------ START HEADER */}
       <header className="home__header">
@@ -107,6 +100,6 @@ export default function Home() {
         <Contact />
       </div>
       {/* ------------ END Contact */}
-    </div>
+    </main>
   );
 }

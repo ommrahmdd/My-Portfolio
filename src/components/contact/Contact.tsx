@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Contact() {
   return (
-    <div className="contact">
+    <section className="contact">
       <div className="customContainer">
         <h3 className="contact__title">Contact Me</h3>
         <div className="contact__content">
@@ -25,6 +25,6 @@ export default function Contact() {
           <p className="contact__content-gmail">ommrahmdd@gmail.com</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -39,7 +39,7 @@ export default function Projects() {
       });
   }, []);
   return (
-    <div className="projectsPage">
+    <main className="projectsPage">
       <Nav name="Projects" />
       <i
         className="fa-solid fa-list-check aboutPage__quote"
@@ -55,6 +55,6 @@ export default function Projects() {
           </h2>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

@@ -6,6 +6,9 @@ export default function About() {
   let overlay1 = useRef(null);
   let overlay2 = useRef(null);
   let aboutPage = useRef(null);
+  let aboutTxt = useRef(null);
+  let skillsRef = useRef(null);
+  let pageQuote = useRef(null);
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine
@@ -29,6 +32,33 @@ export default function About() {
         opacity: 1,
         ease: Power3.easeInOut,
         delay: -1,
+      })
+      .fromTo(
+        [...(aboutTxt.current as any).children],
+        {
+          opacity: 0,
+          y: 20,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: Power3.easeInOut,
+          stagger: 0.2,
+          delay: -0.5,
+        }
+      )
+      .to(pageQuote.current, {
+        duration: 0.5,
+        opacity: 0.2,
+        ease: Power3.easeInOut,
+        // delay: -0.5,
+      })
+      .to(skillsRef.current, {
+        duration: 0.5,
+        opacity: 1,
+        ease: Power3.easeInOut,
+        delay: -0.5,
       });
   }, []);
 
@@ -40,7 +70,10 @@ export default function About() {
   };
   return (
     <div className="aboutPage">
-      <i className="fa-solid fa-quote-right aboutPage__quote"></i>
+      <i
+        className="fa-solid fa-quote-right aboutPage__quote"
+        ref={pageQuote}
+      ></i>
       <div className="page__overlay-1" ref={overlay1}></div>
       <div className="page__overlay-2" ref={overlay2}></div>
       <div className="customContainer">
@@ -48,9 +81,9 @@ export default function About() {
         <div className="aboutPage__content" ref={aboutPage}>
           <h2 className="aboutPage__title">
             <div>More Information</div>
-            <div className="">About Me.</div>
+            <div className="">About.</div>
           </h2>
-          <div className="aboutPage__about">
+          <div className="aboutPage__about" ref={aboutTxt}>
             <div className="">
               As i told you i'am a fresh front-end devloper with 1 year
               experience who's seeking for his first job :).
@@ -66,9 +99,9 @@ export default function About() {
             </div>
           </div>
 
-          <h2 className="aboutPage__skillsTitle">
+          <h2 className="aboutPage__skillsTitle" ref={skillsRef}>
             <div className="">Let's talk about</div>
-            <div className="">my skills</div>
+            <div className="">skills.</div>
           </h2>
 
           <div className="aboutPage__skills">
@@ -86,7 +119,7 @@ export default function About() {
               onMouseOut={(e) => handleMouseLeave(e)}
             >
               <p>CSS3</p>
-              <img src={require("./../../assets/css-3-1.jpg")} alt="html" />
+              <img src={require("./../../assets/css-3.png")} alt="html" />
             </div>
             <div
               className="aboutPage__skills-box"

@@ -6,6 +6,7 @@ export default function Projects() {
   let overlay1 = useRef(null);
   let overlay2 = useRef(null);
   let projectsContent = useRef(null);
+  let pageQuote = useRef(null);
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine
@@ -24,6 +25,12 @@ export default function Projects() {
           stagger: 0.15,
         }
       )
+      .to(pageQuote.current, {
+        duration: 0.5,
+        opacity: 0.2,
+        ease: Power3.easeInOut,
+        // delay: -0.5,
+      })
       .to(projectsContent.current, {
         duration: 0.5,
         opacity: 1,
@@ -34,7 +41,10 @@ export default function Projects() {
   return (
     <div className="projectsPage">
       <Nav name="Projects" />
-      <i className="fa-solid fa-list-check aboutPage__quote"></i>
+      <i
+        className="fa-solid fa-list-check aboutPage__quote"
+        ref={pageQuote}
+      ></i>
       <div className="page__overlay-1" ref={overlay1}></div>
       <div className="page__overlay-2" ref={overlay2}></div>
       <div className="customContainer">

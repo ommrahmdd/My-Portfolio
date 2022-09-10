@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Nav from "../../components/nav/Nav";
 import gsap, { Power3 } from "gsap";
 import Contact from "../../components/contact/Contact";
+import Projects from "../../components/projects/Projects";
 export default function Home() {
   let imgDivRef = useRef<HTMLDivElement | null>(null);
   let imgRef = useRef<HTMLImageElement | null>(null);
@@ -19,13 +20,21 @@ export default function Home() {
       height: "30rem",
       delay: 0.7,
     })
-      .to([div1.current, div2.current, div3.current], {
+      // .to([div1.current, div2.current, div3.current], {
+      //   duration: 0.4,
+      //   ease: Power3.easeInOut,
+      //   opacity: 1,
+      //   y: -10,
+      //   // delay: 2,
+      //   stagger: 0.3,
+      // })
+      .to([...(txtRef.current as any).children], {
         duration: 0.4,
         ease: Power3.easeInOut,
         opacity: 1,
         y: -10,
-        // delay: 2,
-        stagger: 0.3,
+        stagger: 0.15,
+        delay: -0.5,
       })
       .fromTo(
         pageContent.current,
@@ -90,6 +99,9 @@ export default function Home() {
         </div>
       </section>
       {/* ------------ END ABOUT */}
+      {/* ------------ START PROJECTS */}
+      <Projects />
+      {/* ------------ END PROJECTS */}
       {/* ------------ START Contact */}
       <div className="">
         <Contact />

@@ -44,41 +44,50 @@ export default function Menu() {
       delay: delay,
     });
   };
-  let handleOpenClose = (
-    e:
-      | React.MouseEvent<HTMLDivElement, MouseEvent>
-      | React.MouseEvent<HTMLElement, MouseEvent>
-  ) => {
-    console.log("Clicked");
-    let { target } = e;
-    if ((target as HTMLDivElement).classList.contains("active")) {
-      fadeOut(item1.current, 0);
-      fadeOut(item2.current, 0.05);
-      fadeOut(item3.current, 0.1);
-      (target as HTMLDivElement).classList.remove("active");
-    } else {
-      fadeIn(item1.current, -91, -93, 0);
-      fadeIn(item2.current, -130, 7, 0.05);
-      fadeIn(item3.current, -91, 100, 0.1);
-      (target as HTMLDivElement).classList.add("active");
-    }
-    setActive(!active);
+  let fadeOutAllItems = () => {
+    fadeOut(item1.current, 0);
+    fadeOut(item2.current, 0.05);
+    fadeOut(item3.current, 0.1);
   };
 
   let handleClose = () => {
-    fadeOut(item1.current, 0);
-    fadeOut(item2.current, 0.2);
-    fadeOut(item3.current, 0.3);
+    fadeOutAllItems();
+    (document.querySelector(".menu__box-item") as any).classList.remove(
+      "active"
+    );
+    setActive(false);
+  };
+
+  let handleOpen = () => {
+    fadeIn(item1.current, -91, -93, 0);
+    fadeIn(item2.current, -130, 7, 0.05);
+    fadeIn(item3.current, -91, 100, 0.1);
+    (document.querySelector(".menu__box-item") as any).classList.remove(
+      "active"
+    );
+    setActive(true);
   };
   return (
     <div className="menu">
       <div className="menu__overlay" ref={overlay} onClick={handleClose}></div>
       <div className={`menu__box `}>
-        <div className={`menu__box-item ${active ? "active" : ""}`}>
-          <i
-            className="fa-solid fa-ellipsis-vertical"
-            onClick={(e) => handleOpenClose(e)}
-          ></i>
+        <div
+          className={`menu__box-item ${active ? "active" : ""}`}
+          onClick={() => {
+            if (
+              (
+                document.querySelector(".menu__box-item") as any
+              ).classList.contains("active")
+            ) {
+              handleClose();
+            } else {
+              handleOpen();
+            }
+          }}
+        >
+          {/* <i className="fa-solid fa-ellipsis-vertical"></i> */}
+          {/* <i className="fa-solid fa-mug-saucer"></i> */}
+          <i className="fa-solid fa-gears"></i>
         </div>
         <div className="menu__box-item" ref={item1} onClick={handleClose}>
           <Link

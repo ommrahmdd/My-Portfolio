@@ -2,7 +2,7 @@
   // background-color: black;
   position: fixed;
   top: 30%;
-  right: 10%;
+  right: 15%;
   z-index: 10;
   &__box {
     position: relative;
@@ -24,6 +24,7 @@
         z-index: 2;
         opacity: 1;
         color: black;
+        text-shadow: 0.1rem 0.1rem 0.1rem rgb(203, 203, 203);
         font-size: 4rem;
         padding: 0;
         display: block;

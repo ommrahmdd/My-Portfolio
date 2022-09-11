@@ -1,0 +1,72 @@
+.projectPage {
+  min-height: 100vh;
+  background-color: black;
+  // HANDLE: overlay
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    z-index: 10;
+  }
+  // HANDLE: Header
+  &__header {
+    min-height: 100vh;
+    // height: auto;
+    margin: 0;
+    padding: 0;
+    &-box {
+      height: auto;
+      // width: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+
+      h2 {
+        color: white;
+        font-weight: 100;
+        position: absolute;
+        top: 45%;
+        font-size: 8rem !important;
+        opacity: 0;
+        width: 50%;
+      }
+    }
+  }
+  // HANDLE: content
+  &__content {
+    padding: 5rem 0;
+    color: white;
+
+    &-description,
+    &-creation,
+    &-stack {
+      padding: 2rem 0;
+      h3 {
+        position: relative;
+        font-size: 3.2rem !important;
+        text-transform: capitalize;
+        margin-bottom: 2rem;
+        padding-left: 5rem;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: 4rem;
+          height: 0.1rem;
+          background-color: white;
+        }
+      }
+      p {
+        font-size: 2rem !important;
+        font-weight: 200;
+        color: rgb(227, 227, 227);
+      }
+    }
+  }
+}

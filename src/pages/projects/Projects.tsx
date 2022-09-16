@@ -1,12 +1,35 @@
 import React, { useEffect, useRef } from "react";
 import gsap, { Power3 } from "gsap";
+import { useHistory, Link } from "react-router-dom";
 import Nav from "../../components/nav/Nav";
-
+import Contact from "../../components/contact/Contact";
+import {
+  handleCloseOverlay,
+  handleOpenFocus,
+  handleOpenOverlay,
+} from "../../components/projects/projectUtilities";
+import { useSelector } from "react-redux";
+import { IProject } from "../../models/IProject";
+import ProjectsDetails from "../../components/projects/ProjectsDetails";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
+import { getProjectsFromDB } from "./../../store/actions";
 export default function Projects() {
-  let overlay1 = useRef(null);
-  let overlay2 = useRef(null);
-  let projectsContent = useRef(null);
-  let pageQuote = useRef(null);
+  let overlay1: React.RefObject<HTMLDivElement> = useRef(null);
+  let overlay2: React.RefObject<HTMLDivElement> = useRef(null);
+  let projectsContent: React.RefObject<HTMLDivElement> = useRef(null);
+  let pageQuote: React.RefObject<HTMLDivElement> = useRef(null);
+  let projectOverlayRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let projectImgRef = useRef(null);
+  let ProjectImgOverlayRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let projectsRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let projectFocus: React.RefObject<HTMLDivElement> = useRef(null);
+  let dispatch: Dispatch<any> = useDispatch();
+
+  let projects = useSelector((state: any) => {
+    if (state.projects.length == 0) dispatch(getProjectsFromDB());
+    return state.projects;
+  });
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine
@@ -29,14 +52,25 @@ export default function Projects() {
         duration: 0.5,
         opacity: 0.2,
         ease: Power3.easeInOut,
-        // delay: -0.5,
+        delay: -0.5,
       })
       .to(projectsContent.current, {
         duration: 0.5,
         opacity: 1,
         ease: Power3.easeInOut,
         delay: -1,
-      });
+      })
+      .fromTo(
+        projectsRef.current,
+        {
+          opacity: 0,
+        },
+        {
+          duration: 1,
+          opacity: 1,
+          ease: Power3.easeInOut,
+        }
+      );
   }, []);
   return (
     <main className="projectsPage">
@@ -55,6 +89,18 @@ export default function Projects() {
           </h2>
         </div>
       </div>
+      <div className="projects" ref={projectsRef}>
+        <div className="projects__overlay" ref={ProjectImgOverlayRef}></div>
+        <div className="customContainer">
+          <ProjectsDetails
+            projectFocus={projectFocus}
+            projects={projects}
+            projectImgRef={projectImgRef}
+            projectOverlayRef={projectOverlayRef}
+          />
+        </div>
+      </div>
+      <Contact />
     </main>
   );
 }

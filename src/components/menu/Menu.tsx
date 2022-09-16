@@ -85,9 +85,9 @@ export default function Menu() {
             }
           }}
         >
-          {/* <i className="fa-solid fa-ellipsis-vertical"></i> */}
+          <i className="fa-solid fa-ellipsis-vertical"></i>
           {/* <i className="fa-solid fa-mug-saucer"></i> */}
-          <i className="fa-solid fa-gears"></i>
+          {/* <i className="fa-solid fa-gears"></i> */}
         </div>
         <div className="menu__box-item" ref={item1} onClick={handleClose}>
           <Link

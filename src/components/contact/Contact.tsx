@@ -4,7 +4,7 @@ export default function Contact() {
   return (
     <section className="contact">
       <div className="customContainer">
-        <h3 className="contact__title">Contact Me</h3>
+        <h3 className="contact__title">Contact </h3>
         <div className="contact__content">
           <img src={require("./../../assets/bg2.jpg")} alt="contact image" />
           <div className="contact__content-links">

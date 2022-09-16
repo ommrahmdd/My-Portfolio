@@ -2,13 +2,51 @@ import gsap, { Power3 } from "gsap";
 import React, { useEffect, useRef } from "react";
 
 import Nav from "../../components/nav/Nav";
+type skillType = {
+  skill: string;
+  img: string;
+}[];
 export default function About() {
-  let overlay1 = useRef(null);
-  let overlay2 = useRef(null);
-  let aboutPage = useRef(null);
-  let aboutTxt = useRef(null);
-  let skillsRef = useRef(null);
-  let pageQuote = useRef(null);
+  let overlay1: React.RefObject<HTMLDivElement> = useRef(null);
+  let overlay2: React.RefObject<HTMLDivElement> = useRef(null);
+  let aboutPage: React.RefObject<HTMLDivElement> = useRef(null);
+  let aboutTxt: React.RefObject<HTMLDivElement> = useRef(null);
+  let skillsRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let pageQuote: React.RefObject<HTMLDivElement> = useRef(null);
+  let skills: skillType = [
+    {
+      skill: "HTML5",
+      img: "html.png",
+    },
+    {
+      skill: "CSS3",
+      img: "css-3.png",
+    },
+    {
+      skill: "SASS",
+      img: "sass.png",
+    },
+    {
+      skill: "JS",
+      img: "js-1.jpg",
+    },
+    {
+      skill: "Typescript",
+      img: "js-1.jpg",
+    },
+    {
+      skill: "Reactjs",
+      img: "react.png",
+    },
+    {
+      skill: "Nodejs",
+      img: "nodejs.png",
+    },
+    {
+      skill: "MongoDB",
+      img: "mongo.png",
+    },
+  ];
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine
@@ -62,12 +100,6 @@ export default function About() {
       });
   }, []);
 
-  let handleMouseOver = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    (e.target as HTMLDivElement).children[1].setAttribute("style", "opacity:1");
-  };
-  let handleMouseLeave = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    (e.target as HTMLDivElement).children[1].setAttribute("style", "opacity:0");
-  };
   return (
     <main className="aboutPage">
       <i
@@ -105,62 +137,16 @@ export default function About() {
           </h2>
 
           <div className="aboutPage__skills">
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>HTML5</p>
-              <img src={require("./../../assets/html.png")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>CSS3</p>
-              <img src={require("./../../assets/css-3.png")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>JS</p>
-              <img src={require("./../../assets/js-1.jpg")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>SASS</p>
-              <img src={require("./../../assets/sass.png")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>Reactjs</p>
-              <img src={require("./../../assets/react.png")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>Nodejs</p>
-              <img src={require("./../../assets/nodejs.png")} alt="html" />
-            </div>
-            <div
-              className="aboutPage__skills-box"
-              onMouseOver={(e) => handleMouseOver(e)}
-              onMouseOut={(e) => handleMouseLeave(e)}
-            >
-              <p>MongoDB</p>
-              <img src={require("./../../assets/mongo.png")} alt="html" />
-            </div>
+            {skills.map((skill, index) => (
+              <div className="aboutPage__skills-box" key={index}>
+                <p>{skill.skill}</p>
+                <img
+                  src={require(`./../../assets/${skill.img}`)}
+                  alt="html"
+                  className="aboutPage__skills-img"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

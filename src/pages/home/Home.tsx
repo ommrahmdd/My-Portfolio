@@ -3,7 +3,12 @@ import Nav from "../../components/nav/Nav";
 import gsap, { Power3 } from "gsap";
 import Contact from "../../components/contact/Contact";
 import Projects from "../../components/projects/Projects";
+import { getProjectsFromDB } from "./../../store/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
 export default function Home() {
+  let dispatch: Dispatch<any> = useDispatch();
+  let projects = useSelector((state: any) => state.projects);
   let imgDivRef = useRef<HTMLDivElement | null>(null);
   let imgRef = useRef<HTMLImageElement | null>(null);
   let div1 = useRef<HTMLDivElement | null>(null);
@@ -11,15 +16,26 @@ export default function Home() {
   let div3 = useRef<HTMLDivElement | null>(null);
   let txtRef = useRef<HTMLHeadingElement | null>(null);
   let pageContent = useRef<HTMLHeadingElement | null>(null);
+  let headerImgOverlay = useRef<HTMLHeadingElement | null>(null);
   useEffect(() => {
+    dispatch(getProjectsFromDB());
     let tl = new (gsap.timeline as any)();
     tl.to(imgDivRef.current, {
-      duration: 1.5,
+      duration: 1,
       ease: Power3.easeInOut,
       width: "50rem",
       height: "30rem",
-      delay: 0.7,
+      delay: 0.4,
+      marginTop: 0,
     })
+      .to(headerImgOverlay.current, {
+        duration: 1,
+        ease: Power3.easeInOut,
+        left: "-100%",
+        display: "none",
+        // delay: 0.3,
+        marginTop: 0,
+      })
 
       .to([...(txtRef.current as any).children], {
         duration: 0.4,
@@ -64,6 +80,12 @@ export default function Home() {
               alt="header image"
               ref={imgRef}
             />
+            <div className="homeHeader__imgBox-overlay" ref={headerImgOverlay}>
+              <img
+                src={require("./../../assets/headerOverlay.png")}
+                alt="header image"
+              />
+            </div>
           </div>
         </div>
       </header>
@@ -91,6 +113,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      {projects && console.log("Projects", projects)}
       {/* ------------ END ABOUT */}
       {/* ------------ START PROJECTS */}
       <Projects />

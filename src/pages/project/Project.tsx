@@ -1,10 +1,31 @@
 import React, { useEffect, useRef, useLayoutEffect } from "react";
 import gsap, { Power3 } from "gsap";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getProjectsFromDB } from "../../store/actions";
+import { Dispatch } from "redux";
+import { useDispatch } from "react-redux";
+import { IProject } from "./../../models/IProject";
 export default function Project() {
-  let headerRef = useRef(null);
-  let pageOverlay = useRef(null);
-  let pageTitleRef = useRef(null);
-  let pageRef = useRef(null);
+  let headerRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let pageOverlay: React.RefObject<HTMLDivElement> = useRef(null);
+  let pageTitleRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let pageRef: React.RefObject<HTMLDivElement> = useRef(null);
+  let dispatch: Dispatch<any> = useDispatch();
+  let {
+    projectID,
+  }: {
+    projectID: string;
+  } = useParams();
+  let stack = ["html", "css3", "reactjs", "sass", "bootstrap", "typescript"];
+  let project: IProject = useSelector((state: any) => {
+    if (state.projects.length == 0) {
+      dispatch(getProjectsFromDB());
+    }
+    return state.projects.find(
+      (project: any) => project.projectID == projectID
+    );
+  });
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,12 +53,12 @@ export default function Project() {
           className="projectPage__header-box"
           style={{
             height: "100vh",
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.822), rgba(0, 0, 0, 0.822)),url(${require("./../../assets/header.jpg")})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.822), rgba(0, 0, 0, 0.822)),url(${project?.img})`,
             backgroundAttachment: "fixed",
           }}
         >
           <div className="customContainer">
-            <h2 ref={pageTitleRef}>Amazon-Clone</h2>
+            <h2 ref={pageTitleRef}>{project?.name}</h2>
           </div>
         </div>
       </header>
@@ -52,12 +73,21 @@ export default function Project() {
               iusto animi omnis.
             </p>
           </div>
-          <div className="projectPage__content-creation">
-            <h3>Creation Date</h3>
-            <p>7/8/2022</p>
-          </div>
+
           <div className="projectPage__content-stack">
             <h3>Stack</h3>
+            <p>
+              {project?.stack.map((lang: string, index: number) => (
+                <span key={index}>{lang}</span>
+              ))}
+            </p>
+          </div>
+          <div className="projectPage__content-links">
+            <h3>Links</h3>
+            <div className="">
+              <a href={`https://${project?.live}`}>Live</a>
+              <a href={`https://${project?.github}`}>Github</a>
+            </div>
           </div>
         </div>
       </section>

@@ -30,7 +30,7 @@
         font-weight: 100;
         position: absolute;
         top: 45%;
-        font-size: 8rem !important;
+        font-size: 6rem !important;
         opacity: 0;
         width: 50%;
       }
@@ -43,7 +43,8 @@
 
     &-description,
     &-creation,
-    &-stack {
+    &-stack,
+    &-links {
       padding: 2rem 0;
       h3 {
         position: relative;
@@ -66,6 +67,36 @@
         font-size: 2rem !important;
         font-weight: 200;
         color: rgb(227, 227, 227);
+        display: flex;
+        flex-wrap: wrap;
+        span {
+          text-transform: uppercase;
+          margin-right: 1rem;
+          margin-bottom: 1rem;
+          color: black;
+          background-color: rgb(236, 236, 236);
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          font-size: 1.25rem !important;
+          font-weight: 350;
+        }
+      }
+      div {
+        a:link,
+        a:visited {
+          margin-right: 1rem;
+          font-size: 1.7rem;
+          text-decoration: none;
+          color: white;
+          font-weight: 300;
+          border-bottom: 0.1rem solid white;
+          padding-bottom: 0.5rem;
+          transition: all 0.3s ease;
+        }
+        a:hover,
+        a:active {
+          opacity: 0.5;
+        }
       }
     }
   }

@@ -9,11 +9,23 @@ section {
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: 5rem;
   font-weight: 100;
+
+  .marquee {
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+  }
 }
+
 @media only screen and (max-width: 768px) {
   .customContainer {
     width: 92%;

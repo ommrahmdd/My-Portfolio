@@ -79,16 +79,18 @@
       img {
         position: absolute;
         top: 0;
-        right: 1%;
+        // right: 1%;
+        left: 0;
         height: 12rem;
         width: 12rem;
         object-fit: contain;
+        z-index: 3;
         opacity: 0;
         transition: all 0.2s ease-in-out;
         filter: grayscale(1);
-        animation: moveLeft 1.2s infinite;
-        animation-timing-function: linear;
-        animation-direction: alternate-reverse;
+        // animation: moveLeft 1.2s infinite;
+        // animation-timing-function: linear;
+        // animation-direction: alternate-reverse;
       }
     }
   }

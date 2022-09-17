@@ -1,11 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import gsap, { Power3, Power0 } from "gsap";
 import { Link, useHistory } from "react-router-dom";
-import {
-  handleOpenFocus,
-  handleCloseOverlay,
-  handleOpenOverlay,
-} from "./projectUtilities";
+
 import { useSelector } from "react-redux";
 import ProjectsDetails from "./ProjectsDetails";
 export default function Projects() {
@@ -14,7 +9,7 @@ export default function Projects() {
   let ProjectImgOverlayRef = useRef<HTMLDivElement | null>(null);
   let projectFocus = useRef(null);
   let history = useHistory();
-  let projectsFromDB = useSelector((state: any) => state.projects);
+  let projectsFromDB = useSelector((state: any) => state.projects.projects);
   return (
     <section className="projects">
       <div className="projects__overlay" ref={ProjectImgOverlayRef}></div>

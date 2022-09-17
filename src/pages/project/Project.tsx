@@ -19,10 +19,10 @@ export default function Project() {
   } = useParams();
   let stack = ["html", "css3", "reactjs", "sass", "bootstrap", "typescript"];
   let project: IProject = useSelector((state: any) => {
-    if (state.projects.length == 0) {
+    if (state.projects.projects.length == 0) {
       dispatch(getProjectsFromDB());
     }
-    return state.projects.find(
+    return state.projects.projects.find(
       (project: any) => project.projectID == projectID
     );
   });

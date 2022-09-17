@@ -27,8 +27,8 @@ export default function Projects() {
   let dispatch: Dispatch<any> = useDispatch();
 
   let projects = useSelector((state: any) => {
-    if (state.projects.length == 0) dispatch(getProjectsFromDB());
-    return state.projects;
+    if (state.projects.projects.length == 0) dispatch(getProjectsFromDB());
+    return state.projects.projects;
   });
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();

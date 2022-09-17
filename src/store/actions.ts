@@ -14,3 +14,9 @@ export let getProjectsFromDB = () => {
     });
   };
 };
+
+export let setGuest = () => {
+  return {
+    type: "SET_GUEST",
+  };
+};

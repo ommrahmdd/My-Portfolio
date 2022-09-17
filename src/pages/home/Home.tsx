@@ -3,12 +3,16 @@ import Nav from "../../components/nav/Nav";
 import gsap, { Power3 } from "gsap";
 import Contact from "../../components/contact/Contact";
 import Projects from "../../components/projects/Projects";
-import { getProjectsFromDB } from "./../../store/actions";
+import { getProjectsFromDB, setGuest } from "./../../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
+import axios from "axios";
 export default function Home() {
   let dispatch: Dispatch<any> = useDispatch();
-  let projects = useSelector((state: any) => state.projects);
+  let projects = useSelector((state: any) => state.projects.projects);
+  let guest = useSelector((data: any) => {
+    return data.guest.visit;
+  });
   let imgDivRef = useRef<HTMLDivElement | null>(null);
   let imgRef = useRef<HTMLImageElement | null>(null);
   let div1 = useRef<HTMLDivElement | null>(null);
@@ -18,6 +22,18 @@ export default function Home() {
   let pageContent = useRef<HTMLHeadingElement | null>(null);
   let headerImgOverlay = useRef<HTMLHeadingElement | null>(null);
   useEffect(() => {
+    // HANDLE: detect user
+    if (guest == false) {
+      dispatch(setGuest());
+      // HANDLE: send email
+      axios({
+        method: "POST",
+        url: process.env.REACT_APP_NODEMAILER,
+        data: {
+          message: `User visit Your Profile via => ${navigator.userAgent}`,
+        },
+      });
+    }
     dispatch(getProjectsFromDB());
     let tl = new (gsap.timeline as any)();
     tl.to(imgDivRef.current, {
@@ -113,7 +129,6 @@ export default function Home() {
           </p>
         </div>
       </section>
-      {projects && console.log("Projects", projects)}
       {/* ------------ END ABOUT */}
       {/* ------------ START PROJECTS */}
       <Projects />

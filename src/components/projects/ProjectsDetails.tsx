@@ -49,10 +49,10 @@ export default function ProjectsDetails({
               >
                 <i className="fa-solid fa-circle-info"></i>
               </a>
-              <a href={`https://${project.live}`} target="_blank">
+              <a href={`${project.live}`} target="_blank">
                 <i className="fa-solid fa-eye"></i>
               </a>
-              <a href={`https://${project.github}`} target="_blank">
+              <a href={`${project.github}`} target="_blank">
                 <i className="fa-brands fa-github"></i>
               </a>
             </div>

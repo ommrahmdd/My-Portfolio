@@ -17,7 +17,7 @@ export default function Projects() {
         <div className="projects__title">Projects</div>
         <ProjectsDetails
           projectFocus={projectFocus}
-          projects={projectsFromDB}
+          projects={projectsFromDB.slice(0, 4)}
           projectImgRef={projectImgRef}
           projectOverlayRef={projectOverlayRef}
         />

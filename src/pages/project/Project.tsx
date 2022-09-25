@@ -66,12 +66,7 @@ export default function Project() {
         <div className="customContainer">
           <div className="projectPage__content-description">
             <h3>About Project</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-              totam, at tempora sed ducimus impedit! Nesciunt soluta cupiditate
-              impedit illum! Aut hic deleniti voluptates ipsa esse, consectetur
-              iusto animi omnis.
-            </p>
+            <p>{project?.description}</p>
           </div>
 
           <div className="projectPage__content-stack">
@@ -85,8 +80,12 @@ export default function Project() {
           <div className="projectPage__content-links">
             <h3>Links</h3>
             <div className="">
-              <a href={`https://${project?.live}`}>Live</a>
-              <a href={`https://${project?.github}`}>Github</a>
+              <a href={`${project?.live}`} target="_blank">
+                Live
+              </a>
+              <a href={`${project?.github}`} target="_blank">
+                Github
+              </a>
             </div>
           </div>
         </div>

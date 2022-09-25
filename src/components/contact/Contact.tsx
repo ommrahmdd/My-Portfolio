@@ -17,9 +17,6 @@ export default function Contact() {
             <a href="https://github.com/ommrahmdd" target="_blank">
               <i className="fa-brands fa-github"></i>
             </a>
-            <a href="https://twitter.com/ommrahmdd" target="_blank">
-              <i className="fa-brands fa-twitter"></i>
-            </a>
           </div>
           <p className="contact__content-fellFree">- OR -</p>
           <p className="contact__content-gmail">ommrahmdd@gmail.com</p>

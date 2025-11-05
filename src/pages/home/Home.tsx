@@ -114,18 +114,14 @@ export default function Home() {
             <div className="">
               <span className="about__quote">&ldquo;</span>Hi !
             </div>
-            <div className="">
-              My name is <span className="about__span">Omar Ahmed Youssef</span>
-              . I'm a{" "}
-              <span className="about__span">fresh front-end developer</span>{" "}
-              with 1 year experience in web development mainly in{" "}
-              <span className="about__span">Reactjs</span>.
-            </div>
-            <div className="">
-              I implement websites and landing pages from concept through
-              developement and develop it to be compatible with all cross
-              browser.<span className="about__quote">&rdquo;</span>
-            </div>
+            <p>
+              Hi! I'm Omar Ahmed Youssef, a mid-level Frontend Developer with
+              hands-on experience building scalable and user-focused web
+              applications using React.js, Next.js, and TypeScript. I enjoy
+              turning complex ideas into clean, efficient, and responsive
+              interfaces. My focus is always on performance, usability, and
+              writing maintainable code that teams can build on.
+            </p>
           </p>
         </div>
       </section>

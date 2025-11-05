@@ -23,17 +23,17 @@ export default function Home() {
   let headerImgOverlay = useRef<HTMLHeadingElement | null>(null);
   useEffect(() => {
     // HANDLE: detect user
-    if (guest == false) {
-      dispatch(setGuest());
-      // HANDLE: send email
-      axios({
-        method: "POST",
-        url: process.env.REACT_APP_NODEMAILER,
-        data: {
-          message: `User visit Your Profile via => ${navigator.userAgent}`,
-        },
-      });
-    }
+    // if (guest == false) {
+    //   dispatch(setGuest());
+    //   // HANDLE: send email
+    //   axios({
+    //     method: "POST",
+    //     url: process.env.REACT_APP_NODEMAILER,
+    //     data: {
+    //       message: `User visit Your Profile via => ${navigator.userAgent}`,
+    //     },
+    //   });
+    // }
     dispatch(getProjectsFromDB());
     let tl = new (gsap.timeline as any)();
     tl.to(imgDivRef.current, {

@@ -1,14 +1,9 @@
 {
-  "build": {
-    "env": {
-      "NODE_VERSION": "18"
-    }
-  },
   "functions": {
-    "**/*.ts": {
+    "api/**/*": {
       "runtime": "nodejs18.x"
     },
-    "**/*.js": {
+    "*.{js,ts}": {
       "runtime": "nodejs18.x"
     }
   }

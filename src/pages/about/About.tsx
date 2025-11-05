@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 import Nav from "../../components/nav/Nav";
 type skillType = {
   skill: string;
-  img: string;
 }[];
 export default function About() {
   let overlay1: React.RefObject<HTMLDivElement> = useRef(null);
@@ -14,39 +13,37 @@ export default function About() {
   let skillsRef: React.RefObject<HTMLDivElement> = useRef(null);
   let pageQuote: React.RefObject<HTMLDivElement> = useRef(null);
   let skills: skillType = [
-    {
-      skill: "HTML5",
-      img: "html.png",
-    },
-    {
-      skill: "CSS3",
-      img: "css-3.png",
-    },
-    {
-      skill: "SASS",
-      img: "sass.png",
-    },
-    {
-      skill: "JS",
-      img: "js-1.jpg",
-    },
-    {
-      skill: "Typescript",
-      img: "js-1.jpg",
-    },
-    {
-      skill: "Reactjs",
-      img: "react.png",
-    },
-    {
-      skill: "Nodejs",
-      img: "nodejs.png",
-    },
-    {
-      skill: "MongoDB",
-      img: "mongo.png",
-    },
+    { skill: "HTML5" },
+    { skill: "CSS3" },
+    { skill: "SASS (SCSS)" },
+    { skill: "JavaScript (ES6+)" },
+    { skill: "TypeScript" },
+    { skill: "React.js" },
+    { skill: "Next.js" },
+    { skill: "Redux Toolkit" },
+    { skill: "Redux Thunk" },
+    { skill: "Zustand" },
+    { skill: "Tailwind CSS" },
+    { skill: "Bootstrap" },
+    { skill: "Ant Design" },
+    { skill: "I18next" },
+    { skill: "Formik" },
+    { skill: "React Hook Form" },
+    { skill: "Yup" },
+    { skill: "Zod" },
+    { skill: "React Testing Library" },
+    { skill: "Jest" },
+    { skill: "Git & GitHub" },
+    { skill: "Bitbucket" },
+    { skill: "Jira" },
+    { skill: "Jenkins" },
+    { skill: "Node.js (Basics)" },
+    { skill: "Express.js (Basics)" },
+    { skill: "MongoDB (Basics)" },
+    { skill: "Firebase" },
+    { skill: "Micro-Frontend (Webpack + NPM)" },
   ];
+
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine
@@ -117,17 +114,17 @@ export default function About() {
           </h2>
           <div className="aboutPage__about" ref={aboutTxt}>
             <div className="">
-              As i told you i'am a fresh front-end devloper with 1 year
-              experience who's seeking for his first job :).
+              I enjoy turning ideas into simple, usable, and visually clear web
+              experiences.
             </div>
             <div className="">
-              I graduated from faculty of computer and information system but
-              also i'm a self toughter build myself step by step and still
-              continue.
+              I work mainly with React and modern UI tools, and I like focusing
+              on small details that make a design feel natural.
             </div>
             <div className="">
-              I'm trying to be a good developer throught improve my skills not
-              just in coding also in like communication skills and others.
+              I believe in continuous learning, clean code, and communication. I
+              try to improve a little every day — in development, design sense,
+              and teamwork.
             </div>
           </div>
 
@@ -140,11 +137,6 @@ export default function About() {
             {skills.map((skill, index) => (
               <div className="aboutPage__skills-box" key={index}>
                 <p>{skill.skill}</p>
-                <img
-                  src={require(`./../../assets/${skill.img}`)}
-                  alt="html"
-                  className="aboutPage__skills-img"
-                />
               </div>
             ))}
           </div>

@@ -111,17 +111,12 @@ export default function Home() {
         <div className="customContainer">
           <h2 className="about__title">About</h2>
           <p>
-            <div className="">
-              <span className="about__quote">&ldquo;</span>Hi !
-            </div>
-            <p>
-              Hi! I'm Omar Ahmed Youssef, a mid-level Frontend Developer with
-              hands-on experience building scalable and user-focused web
-              applications using React.js, Next.js, and TypeScript. I enjoy
-              turning complex ideas into clean, efficient, and responsive
-              interfaces. My focus is always on performance, usability, and
-              writing maintainable code that teams can build on.
-            </p>
+            Hi! I'm Omar Ahmed Youssef, a mid-level Frontend Developer with
+            hands-on experience building scalable and user-focused web
+            applications using React.js, Next.js, and TypeScript. I enjoy
+            turning complex ideas into clean, efficient, and responsive
+            interfaces. My focus is always on performance, usability, and
+            writing maintainable code that teams can build on.
           </p>
         </div>
       </section>

@@ -3,5 +3,13 @@
     "env": {
       "NODE_VERSION": "18"
     }
+  },
+  "functions": {
+    "**/*.ts": {
+      "runtime": "nodejs18.x"
+    },
+    "**/*.js": {
+      "runtime": "nodejs18.x"
+    }
   }
 }

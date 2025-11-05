@@ -6,7 +6,6 @@ export default function Contact() {
       <div className="customContainer">
         <h3 className="contact__title">Contact </h3>
         <div className="contact__content">
-          <img src={require("./../../assets/bg2.jpg")} alt="contact image" />
           <div className="contact__content-links">
             <a
               href="https://www.linkedin.com/in/omar-ahmed-615795151"

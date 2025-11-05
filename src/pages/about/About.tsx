@@ -44,6 +44,8 @@ export default function About() {
     { skill: "Micro-Frontend (Webpack + NPM)" },
   ];
 
+  // test
+
   useEffect(() => {
     let myTimeLine = new (gsap.timeline as any)();
     myTimeLine

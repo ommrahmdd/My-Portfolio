@@ -2,9 +2,11 @@ import gsap, { Power3 } from "gsap";
 import React, { useEffect, useRef } from "react";
 
 import Nav from "../../components/nav/Nav";
+
 type skillType = {
   skill: string;
 }[];
+
 export default function About() {
   let overlay1: React.RefObject<HTMLDivElement> = useRef(null);
   let overlay2: React.RefObject<HTMLDivElement> = useRef(null);
@@ -12,37 +14,57 @@ export default function About() {
   let aboutTxt: React.RefObject<HTMLDivElement> = useRef(null);
   let skillsRef: React.RefObject<HTMLDivElement> = useRef(null);
   let pageQuote: React.RefObject<HTMLDivElement> = useRef(null);
-  let skills: skillType = [
-    { skill: "HTML5" },
-    { skill: "CSS3" },
-    { skill: "SASS (SCSS)" },
-    { skill: "JavaScript (ES6+)" },
-    { skill: "TypeScript" },
-    { skill: "React.js" },
-    { skill: "Next.js" },
-    { skill: "Redux Toolkit" },
-    { skill: "Redux Thunk" },
-    { skill: "Zustand" },
-    { skill: "Tailwind CSS" },
-    { skill: "Bootstrap" },
-    { skill: "Ant Design" },
-    { skill: "I18next" },
-    { skill: "Formik" },
-    { skill: "React Hook Form" },
-    { skill: "Yup" },
-    { skill: "Zod" },
-    { skill: "React Testing Library" },
-    { skill: "Jest" },
-    { skill: "Git & GitHub" },
-    { skill: "Bitbucket" },
-    { skill: "Jira" },
-    { skill: "Jenkins" },
-    { skill: "Node.js (Basics)" },
-    { skill: "Express.js (Basics)" },
-    { skill: "MongoDB (Basics)" },
-    { skill: "Firebase" },
-    { skill: "Micro-Frontend (Webpack + NPM)" },
+
+  const skills = [
+    {
+      section: "Languages",
+      items: ["JavaScript (ES6+)", "TypeScript"],
+    },
+    {
+      section: "Frameworks",
+      items: ["React.js", "Next.js", "Node.js", "Express.js"],
+    },
+    {
+      section: "Styling",
+      items: ["CSS", "Tailwind", "SASS", "Bootstrap", "Ant Design"],
+    },
+    {
+      section: "Tools",
+      items: ["Git", "GitHub", "Bitbucket", "Jira", "Jenkins"],
+    },
   ];
+
+  // let skills: skillType = [
+  //   { skill: "HTML5" },
+  //   { skill: "CSS3" },
+  //   { skill: "SASS (SCSS)" },
+  //   { skill: "JavaScript (ES6+)" },
+  //   { skill: "TypeScript" },
+  //   { skill: "React.js" },
+  //   { skill: "Next.js" },
+  //   { skill: "Redux Toolkit" },
+  //   { skill: "Redux Thunk" },
+  //   { skill: "Zustand" },
+  //   { skill: "Tailwind CSS" },
+  //   { skill: "Bootstrap" },
+  //   { skill: "Ant Design" },
+  //   { skill: "I18next" },
+  //   { skill: "Formik" },
+  //   { skill: "React Hook Form" },
+  //   { skill: "Yup" },
+  //   { skill: "Zod" },
+  //   { skill: "React Testing Library" },
+  //   { skill: "Jest" },
+  //   { skill: "Git & GitHub" },
+  //   { skill: "Bitbucket" },
+  //   { skill: "Jira" },
+  //   { skill: "Jenkins" },
+  //   { skill: "Node.js (Basics)" },
+  //   { skill: "Express.js (Basics)" },
+  //   { skill: "MongoDB (Basics)" },
+  //   { skill: "Firebase" },
+  //   { skill: "Micro-Frontend (Webpack + NPM)" },
+  // ];
 
   // test
 
@@ -107,13 +129,16 @@ export default function About() {
       ></i>
       <div className="page__overlay-1" ref={overlay1}></div>
       <div className="page__overlay-2" ref={overlay2}></div>
+
       <div className="customContainer">
         <Nav name="About" />
+
         <div className="aboutPage__content" ref={aboutPage}>
           <h2 className="aboutPage__title">
             <div>More Information</div>
             <div className="">About.</div>
           </h2>
+
           <div className="aboutPage__about" ref={aboutTxt}>
             <div className="">
               I enjoy turning ideas into simple, usable, and visually clear web
@@ -138,7 +163,14 @@ export default function About() {
           <div className="aboutPage__skills">
             {skills.map((skill, index) => (
               <div className="aboutPage__skills-box" key={index}>
-                <p>{skill.skill}</p>
+                <p className="box__section">{skill.section}</p>
+                <div className="box__items">
+                  {skill?.items?.map((i, index) => (
+                    <p className="box__items-item" key={index}>
+                      {i} {index !== skill?.items?.length - 1 && "|"}
+                    </p>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

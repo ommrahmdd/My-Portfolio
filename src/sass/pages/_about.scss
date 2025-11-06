@@ -3,14 +3,12 @@
 }
 .aboutPage__quote {
   position: fixed;
-  // content: "\201D";
-  font-size: 30rem !important;
-  width: 10rem;
-  height: 10rem;
+  font-size: 15rem !important;
   top: 2%;
-  right: 30%;
+  right: 14%;
   opacity: 0;
 }
+
 .page__overlay-1,
 .page__overlay-2 {
   position: absolute;
@@ -34,14 +32,16 @@
     opacity: 0;
     padding: 7rem 0;
   }
+
   &__title {
     font-weight: 700;
     text-transform: capitalize;
     font-size: 5rem !important;
     margin-bottom: 2rem;
   }
+
   &__about {
-    padding: 2rem 5rem;
+    padding: 2rem 3rem;
     div {
       font-size: 2rem !important;
       text-transform: lowercase;
@@ -63,38 +63,31 @@
   }
 
   &__skills {
-    display: grid;
-    grid-template-columns: 1fr;
+    padding: 2rem 3rem;
+
     &-box {
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      p {
-        font-size: 4rem !important;
-        font-weight: 200;
-        // margin-right: 4rem;
+      padding: 0.7rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      .box__section {
+        font-size: 2.5rem !important;
+        font-weight: 300;
       }
-      img {
-        position: absolute;
-        top: 0;
-        // right: 1%;
-        left: 0;
-        height: 12rem;
-        width: 12rem;
-        object-fit: contain;
-        z-index: 3;
-        opacity: 0;
-        transition: all 0.2s ease-in-out;
-        filter: grayscale(1);
-        // animation: moveLeft 1.2s infinite;
-        // animation-timing-function: linear;
-        // animation-direction: alternate-reverse;
+
+      .box__items {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .box__items-item {
+        font-size: 2rem !important;
+        font-weight: 200;
       }
     }
   }
 }
+
 @keyframes moveLeft {
   0% {
     transform: translateX(-2rem);
@@ -113,9 +106,9 @@
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .aboutPage__skills {
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2rem;
-  }
-}
+// @media only screen and (min-width: 768px) {
+//   .aboutPage__skills {
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-gap: 2rem;
+//   }
+// }

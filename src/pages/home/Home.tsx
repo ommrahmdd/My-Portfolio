@@ -76,14 +76,17 @@ export default function Home() {
   return (
     <main className="home">
       <Nav name="Home" />
+
       {/* ------------------ START HEADER */}
       <header className="home__header">
         {/* Header left */}
         <div className="home__header-left">
           <h1 ref={txtRef}>
-            <div ref={div1}>I'm</div>
+            <div className="keft__iam" ref={div1}>
+              I'm
+            </div>
             <div className="" ref={div2}>
-              Omar-
+              Omar
             </div>
             <div ref={div3}>Youssef</div>
           </h1>
@@ -106,6 +109,7 @@ export default function Home() {
         </div>
       </header>
       {/* ------------ END HEADER */}
+
       {/* ------------ START ABOUT */}
       <section className="about" ref={pageContent}>
         <div className="customContainer">
@@ -121,9 +125,11 @@ export default function Home() {
         </div>
       </section>
       {/* ------------ END ABOUT */}
+
       {/* ------------ START PROJECTS */}
       <Projects />
       {/* ------------ END PROJECTS */}
+
       {/* ------------ START Contact */}
       <div className="">
         <Contact />

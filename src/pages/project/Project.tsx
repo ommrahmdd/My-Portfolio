@@ -53,7 +53,7 @@ export default function Project() {
           className="projectPage__header-box"
           style={{
             height: "100vh",
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.822), rgba(0, 0, 0, 0.822)),url(${project?.img})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.822), rgba(0, 0, 0, 0.822)),url(${project?.img}), url(${process.env.PUBLIC_URL}/logo512.png)`,
             backgroundAttachment: "fixed",
           }}
         >

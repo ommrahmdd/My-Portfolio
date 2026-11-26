@@ -23,18 +23,24 @@
       &:first-child {
         z-index: 2;
         opacity: 1;
-        color: black;
-        text-shadow: 0.1rem 0.1rem 0.1rem rgb(203, 203, 203);
-        font-size: 4rem;
+        color: white;
+        font-size: 3rem;
         padding: 0;
-        display: block;
-        background-color: transparent;
-        width: auto;
-        height: auto;
+        display: flex;
+        background-color: black;
+        width: 6rem;
+        height: 6rem;
         cursor: pointer;
+        border: 0.2rem solid white;
+        box-shadow: 0 0.4rem 1.6rem rgba(0, 0, 0, 0.45);
+        animation: menuPulse 2s infinite;
         transition: all 0.3s ease-in-out;
         &:hover {
-          font-size: 4.3rem;
+          font-size: 3.3rem;
+          transform: scale(1.08);
+        }
+        &.active {
+          animation: none;
         }
       }
 
@@ -64,4 +70,16 @@
 }
 .menu__box-link:hover {
   color: white;
+}
+
+@keyframes menuPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.55), 0 0.4rem 1.6rem rgba(0, 0, 0, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 1.8rem rgba(0, 0, 0, 0), 0 0.4rem 1.6rem rgba(0, 0, 0, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0), 0 0.4rem 1.6rem rgba(0, 0, 0, 0.45);
+  }
 }

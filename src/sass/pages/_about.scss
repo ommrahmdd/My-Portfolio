@@ -68,7 +68,13 @@
     &-box {
       padding: 0.7rem;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr 2fr;
+      align-items: start;
+      gap: 1rem;
+
+      @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
 
       .box__section {
         font-size: 2.5rem !important;
@@ -77,12 +83,16 @@
 
       .box__items {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.4rem 1rem;
       }
 
       .box__items-item {
         font-size: 2rem !important;
         font-weight: 200;
+        white-space: nowrap;
+        margin: 0;
       }
     }
   }

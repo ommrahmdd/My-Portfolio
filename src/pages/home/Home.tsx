@@ -115,12 +115,15 @@ export default function Home() {
         <div className="customContainer">
           <h2 className="about__title">About</h2>
           <p>
-            Hi! I'm Omar Ahmed Youssef, a mid-level Frontend Developer with
-            hands-on experience building scalable and user-focused web
-            applications using React.js, Next.js, and TypeScript. I enjoy
-            turning complex ideas into clean, efficient, and responsive
-            interfaces. My focus is always on performance, usability, and
-            writing maintainable code that teams can build on.
+            Hi! I'm Omar Ahmed Youssef, a Frontend Developer with 3+ years of
+            experience designing, building, and maintaining responsive web
+            applications, SaaS platforms, and e-commerce interfaces using
+            React.js, Next.js, and TypeScript. I turn UI/UX designs and product
+            requirements into scalable, component-based architectures,
+            integrate RESTful APIs, and care about performance, accessibility,
+            and cross-browser compatibility. I work well in teams — Git
+            workflows, CI/CD, testing, and code reviews are part of my daily
+            routine.
           </p>
         </div>
       </section>

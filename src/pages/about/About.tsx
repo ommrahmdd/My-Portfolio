@@ -17,20 +17,60 @@ export default function About() {
 
   const skills = [
     {
-      section: "Languages",
-      items: ["JavaScript (ES6+)", "TypeScript"],
+      section: "Languages & Core",
+      items: ["JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3"],
     },
     {
-      section: "Frameworks",
-      items: ["React.js", "Next.js", "Node.js", "Express.js"],
+      section: "Frameworks & Libraries",
+      items: [
+        "React.js",
+        "Next.js",
+        "Redux Toolkit (RTK Query)",
+        "Zustand",
+        "React Hook Form",
+        "Formik",
+        "Zod",
+        "i18next",
+      ],
     },
     {
-      section: "Styling",
-      items: ["CSS", "Tailwind", "SASS", "Bootstrap", "Ant Design"],
+      section: "Backend & APIs",
+      items: [
+        "RESTful APIs",
+        "Node.js",
+        "Express.js",
+        "Firebase",
+        "SQL",
+        "MongoDB (Basic)",
+        "Java (Basic)",
+      ],
     },
     {
-      section: "Tools",
-      items: ["Git", "GitHub", "Bitbucket", "Jira", "Jenkins"],
+      section: "Styling & UI",
+      items: [
+        "Tailwind CSS",
+        "SASS/SCSS",
+        "Ant Design",
+        "Bootstrap",
+        "Semantic UI",
+        "GSAP",
+        "Responsive Design",
+      ],
+    },
+    {
+      section: "Tools & Workflows",
+      items: ["Git", "GitHub", "Bitbucket", "Jenkins (CI/CD)", "Jira"],
+    },
+    {
+      section: "Testing & Practice",
+      items: [
+        "Jest",
+        "React Testing Library",
+        "Atomic Design",
+        "MVVM",
+        "Accessibility",
+        "Performance Optimization",
+      ],
     },
   ];
 
